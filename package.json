@@ -1,7 +1,10 @@
 {
   "name": "@aerogear/graphql-mqtt-subscriptions",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A graphql-subscriptions PubSub Engine using mqtt protocol",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "dist/index.js",
   "repository": {
     "type": "git",
@@ -31,7 +34,10 @@
     "benchmark": "npm run compile && mocha --reporter spec --full-trace ./dist/test/benchmark.js ",
     "coverage": "node ./node_modules/istanbul/lib/cli.js cover _mocha -- --full-trace ./dist/test/tests.js",
     "postcoverage": "remap-istanbul --input coverage/coverage.raw.json --type lcovonly --output coverage/lcov.info",
-    "prepublish": "npm run test"
+    "prepublish": "npm run test",
+    "release:prep": "./scripts/prepareRelease.sh",
+    "release:validate": "./scripts/validateRelease.sh",
+    "publish": "./scripts/publishRelease.sh"
   },
   "dependencies": {
     "graphql-subscriptions": "^0.4.2",
