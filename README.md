@@ -1,5 +1,8 @@
 # graphql-mqtt-subscriptions
 
+[![CircleCI](https://circleci.com/gh/aerogear/graphql-mqtt-subscriptions.svg?style=svg)](https://circleci.com/gh/aerogear/graphql-mqtt-subscriptions)
+[![Coverage Status](https://coveralls.io/repos/github/aerogear/graphql-mqtt-subscriptions/badge.svg?branch=master)](https://coveralls.io/github/aerogear/graphql-mqtt-subscriptions?branch=master)
+
 This package implements the AsyncIterator Interface and PubSubEngine Interface from the [graphql-subscriptions](https://github.com/apollographql/graphql-subscriptions) package. 
 It allows you to connect your subscriptions manager to an MQTT enabled Pub Sub broker to support 
 horizontally scalable subscriptions setup.
