@@ -1,0 +1,52 @@
+version: 2
+jobs:
+  test-node-lts:
+    working_directory: ~/aerogear
+    docker:
+      - image: circleci/node:lts
+    steps:
+      - checkout
+      - run:
+          name: install-dependencies
+          command: npm install
+      - run:
+          name: run test
+          command: npm run test
+      - run:
+          name: run lint
+          command: npm run lint
+      - run:
+          name: run coverage
+          command: npm run coverage
+      - run:
+          name: send coverage report to coveralls
+          command: cat ./coverage/lcov.info | ./node_modules/.bin/coveralls
+  npm_publish:
+    working_directory: ~/aerogear
+    docker:
+      # Node LTS
+      - image: circleci/node:lts
+    steps:
+      - checkout
+        # Allows us to authenticate with the npm registry
+      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+      - run: CI=true npm run release:prep
+      - run: TAG=$CIRCLE_TAG npm run release:validate
+      - run: TAG=$CIRCLE_TAG npm run publish
+
+workflows:
+  version: 2
+  build_and_release:
+    jobs:
+      - test-node-lts:
+          filters:
+            tags:
+              only: /.*/
+      - npm_publish:
+          requires:
+            - test-node-lts
+          filters:
+            tags:
+              only: /.*/ # allow anything because tag syntax is validated as part of validate-release.sh
+            branches:
+              ignore: /.*/
