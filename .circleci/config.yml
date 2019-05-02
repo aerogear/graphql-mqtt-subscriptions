@@ -1,51 +1,9 @@
 version: 2
 jobs:
-  test-node-6:
+  test-node-lts:
     working_directory: ~/aerogear
     docker:
-      - image: circleci/node:6
-    steps:
-      - checkout
-      - run:
-          name: install-dependencies
-          command: npm install
-      - run:
-          name: run test
-          command: npm run test
-      - run:
-          name: run lint
-          command: npm run lint
-      - run:
-          name: run coverage
-          command: npm run coverage
-      - run:
-          name: send coverage report to coveralls
-          command: cat ./coverage/lcov.info | ./node_modules/.bin/coveralls
-  test-node-8:
-    working_directory: ~/aerogear
-    docker:
-      - image: circleci/node:8
-    steps:
-      - checkout
-      - run:
-          name: install-dependencies
-          command: npm install
-      - run:
-          name: run test
-          command: npm run test
-      - run:
-          name: run lint
-          command: npm run lint
-      - run:
-          name: run coverage
-          command: npm run coverage
-      - run:
-          name: send coverage report to coveralls
-          command: cat ./coverage/lcov.info | ./node_modules/.bin/coveralls
-  test-node-10:
-    working_directory: ~/aerogear
-    docker:
-      - image: circleci/node:10
+      - image: circleci/node:lts
     steps:
       - checkout
       - run:
@@ -66,7 +24,7 @@ jobs:
   npm_publish:
     working_directory: ~/aerogear
     docker:
-      # Node 8 LTS
+      # Node LTS
       - image: circleci/node:lts
     steps:
       - checkout
@@ -80,23 +38,13 @@ workflows:
   version: 2
   build_and_release:
     jobs:
-      - test-node-6:
-          filters:
-            tags:
-              only: /.*/
-      - test-node-8:
-          filters:
-            tags:
-              only: /.*/
-      - test-node-10:
+      - test-node-lts:
           filters:
             tags:
               only: /.*/
       - npm_publish:
           requires:
-            - test-node-6
-            - test-node-8
-            - test-node-10
+            - test-node-lts
           filters:
             tags:
               only: /.*/ # allow anything because tag syntax is validated as part of validate-release.sh
