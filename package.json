@@ -8,7 +8,7 @@
   "main": "dist/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/davidyaha/graphql-mqtt-subscriptions.git"
+    "url": "https://github.com/aerogear/graphql-mqtt-subscriptions.git"
   },
   "keywords": [
     "graphql",
@@ -19,9 +19,9 @@
   "author": "David Yahalomi",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/davidyaha/graphql-mqtt-subscriptions/issues"
+    "url": "https://github.com/aerogear/graphql-mqtt-subscriptions/issues"
   },
-  "homepage": "https://github.com/davidyaha/graphql-mqtt-subscriptions",
+  "homepage": "https://github.com/aerogear/graphql-mqtt-subscriptions",
   "scripts": {
     "compile": "tsc --noUnusedParameters --noUnusedLocals",
     "pretest": "npm run compile",
