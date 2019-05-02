@@ -1,5 +1,6 @@
 src
 node_modules
+scripts
 typings
 tsconfig.json
 typings.json
