@@ -77,13 +77,12 @@ export class MQTTPubSub implements PubSubEngine {
     this.parseMessageWithEncoding = options.parseMessageWithEncoding;
   }
 
-  public publish(trigger: string, payload: any): boolean {
-    this.publishOptionsResolver(trigger, payload).then(publishOptions => {
+  public publish(trigger: string, payload: any): Promise<void> {
+    return this.publishOptionsResolver(trigger, payload).then(publishOptions => {
       const message = Buffer.from(JSON.stringify(payload), this.parseMessageWithEncoding);
 
       this.mqttConnection.publish(trigger, message, publishOptions);
     });
-    return true;
   }
 
   public subscribe(trigger: string, onMessage: Function, options?: Object): Promise<number> {
