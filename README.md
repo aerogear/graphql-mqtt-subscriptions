@@ -67,6 +67,26 @@ When messages are received from the topic, those messages can be returned back t
 pubsub.publish(SOMETHING_CHANGED_TOPIC, { somethingChanged: { id: "123" }});
 ```
 
+## Passing Your Own MQTT Client
+
+The basic usage allows you to connect to an MQTT broker running on on `localhost` and works well for development.
+For production usage, it is recommended you pass your own MQTT client.
+ 
+```javascript
+import { connect } from 'mqtt';
+import { MQTTPubSub } from 'graphql-mqtt-subscriptions';
+
+const client = connect('mqtt://test.mosquitto.org', {
+  reconnectPeriod: 1000,
+});
+
+const pubsub = new MQTTPubSub({
+  client
+});
+```
+
+You can learn more on the mqtt options object [here](https://github.com/mqttjs/MQTT.js#client).
+
 ## Dynamically Create a Topic Based on Subscription Args Passed on the Query:
 
 ```javascript
@@ -95,26 +115,6 @@ export const resolvers = {
   },
 }
 ```
-
-## Passing your own client object
-
-The basic usage is great for development and you will be able to connect to any mqtt enabled server running on your system seamlessly.
-For production usage, it is recommended you pass your own MQTT client.
- 
-```javascript
-import { connect } from 'mqtt';
-import { MQTTPubSub } from 'graphql-mqtt-subscriptions';
-
-const client = connect('mqtt://test.mosquitto.org', {
-  reconnectPeriod: 1000,
-});
-
-const pubsub = new MQTTPubSub({
-  client
-});
-```
-
-You can learn more on the mqtt options object [here](https://github.com/mqttjs/MQTT.js#client).
 
 ## Changing QoS for publications or subscriptions
 
