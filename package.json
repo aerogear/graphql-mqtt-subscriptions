@@ -39,8 +39,8 @@
     "release:publish": "./scripts/publishRelease.sh"
   },
   "dependencies": {
-    "iterall": "^1.1.1",
-    "mqtt": "^2.3.0"
+    "iterall": "^1.2.2",
+    "mqtt": "^2.18.8"
   },
   "devDependencies": {
     "@types/chai": "^3.4.34",
