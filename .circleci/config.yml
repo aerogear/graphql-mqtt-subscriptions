@@ -16,9 +16,6 @@ jobs:
           name: run lint
           command: npm run lint
       - run:
-          name: run coverage
-          command: npm run coverage
-      - run:
           name: send coverage report to coveralls
           command: cat ./coverage/lcov.info | ./node_modules/.bin/coveralls
   npm_publish:
