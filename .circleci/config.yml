@@ -4,6 +4,7 @@ jobs:
     working_directory: ~/aerogear
     docker:
       - image: circleci/node:lts
+      - image: matteocollina/mosca
     steps:
       - checkout
       - run:
@@ -15,6 +16,9 @@ jobs:
       - run:
           name: run lint
           command: npm run lint
+      - run:
+          name: run integration
+          command: npm run integration
       - run:
           name: send coverage report to coveralls
           command: cat ./coverage/lcov.info | ./node_modules/.bin/coveralls

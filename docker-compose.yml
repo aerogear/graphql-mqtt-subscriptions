@@ -1,0 +1,10 @@
+version: '3'
+services:
+  mosca:
+    image: matteocollina/mosca
+    ports:
+      - 1883:1883
+      - 80:80
+    environment:
+      NODE_ENV: development
+      
