@@ -27,22 +27,38 @@ describe('Integration MQTT subscriptions', () => {
 
   it('Test single subscribe', (done) => {
     const SOMETHING_CHANGED_TOPIC = 'something_changed';
-    let clientId;
+
 
     // Asserts here
     let callback = (message) => {
       assert(message, 'Message published');
       expect(message.data).to.equals(sampleData.data);
-      if (clientId) {
-        const unsubscribedPromise = pubsub.unsubscribe(clientId);
-        // tslint:disable-next-line:no-unused-expression
-        expect(unsubscribedPromise).to.eventually.be.fulfilled;
+      if (message.clientId) {
+        pubsub.unsubscribe(message.clientId);
       }
       done();
     };
-    pubsub.subscribe(SOMETHING_CHANGED_TOPIC, callback).then((id) => {
-      clientId = id;
-      pubsub.publish(SOMETHING_CHANGED_TOPIC, sampleData);
+    pubsub.subscribe(SOMETHING_CHANGED_TOPIC, callback).then((clientId) => {
+      pubsub.publish(SOMETHING_CHANGED_TOPIC, {...sampleData, clientId });
+    });
+  });
+
+
+  it('Test unsubscribe', (done) => {
+    const TOPIC = 'unsubscribe';
+    let called = false;
+    let callback = ({clientId}) => {
+      if(called){
+        fail('Unsubscribe was not effective')
+      }
+      called = true;
+
+      pubsub.unsubscribe(clientId);
+      pubsub.publish(TOPIC, {clientId});
+      setTimeout(done, 100)
+    };
+    pubsub.subscribe(TOPIC, callback).then((clientId) => {
+      pubsub.publish(TOPIC, {clientId});
     });
   });
 
@@ -66,7 +82,7 @@ describe('Integration MQTT subscriptions', () => {
           done();
         }).catch(fail);
       });
-    }, 600);
+    }, 300);
   });
 
   it('Test wildcard subscribe', (done) => {
