@@ -29,6 +29,7 @@
     "lint": "tslint ./src/**/*.ts",
     "watch": "tsc -w",
     "integration": "npm run compile && mocha --reporter spec --full-trace --exit ./dist/test/integration-tests.js ",
+    "benchmark": "npm run compile && mocha --reporter spec --full-trace ./dist/test/benchmark.js ",
     "release:prep": "./scripts/prepareRelease.sh",
     "release:validate": "./scripts/validateRelease.sh",
     "release:publish": "./scripts/publishRelease.sh"
