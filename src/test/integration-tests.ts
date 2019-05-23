@@ -48,14 +48,14 @@ describe('Integration MQTT subscriptions', () => {
     const TOPIC = 'unsubscribe';
     let called = false;
     let callback = ({clientId}) => {
-      if(called){
-        fail('Unsubscribe was not effective')
+      if (called) {
+        fail('Unsubscribe was not effective');
       }
       called = true;
 
       pubsub.unsubscribe(clientId);
       pubsub.publish(TOPIC, {clientId});
-      setTimeout(done, 100)
+      setTimeout(done, 100);
     };
     pubsub.subscribe(TOPIC, callback).then((clientId) => {
       pubsub.publish(TOPIC, {clientId});
