@@ -68,6 +68,6 @@
     "extends": "@istanbuljs/nyc-config-typescript",
     "all": true,
     "check-coverage": false, 
-    "exclude": ["*tests.ts"]
+    "exclude": ["src/test/**/*.ts"]
   }
 }
