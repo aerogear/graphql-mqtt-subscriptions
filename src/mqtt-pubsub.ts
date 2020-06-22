@@ -13,6 +13,9 @@ export interface PubSubMQTTOptions {
   parseMessageWithEncoding?: BufferEncoding;
 }
 
+/**
+* PubSub Engine that supports MQTT protocol
+*/
 export class MQTTPubSub implements PubSubEngine {
 
   private triggerTransform: TriggerTransform;
