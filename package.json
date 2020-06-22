@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "iterall": "^1.2.2",
-    "mqtt": "^2.18.8"
+    "mqtt": "^4.0.0"
   },
   "devDependencies": {
     "@istanbuljs/nyc-config-typescript": "0.1.3",
