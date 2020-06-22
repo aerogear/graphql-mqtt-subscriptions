@@ -52,7 +52,7 @@
     "graphql": "15.1.0",
     "graphql-subscriptions": "1.1.0",
     "mocha": "8.0.1",
-    "nyc": "14.1.1",
+    "nyc": "15.1.0",
     "simple-mock": "0.8.0",
     "tslint": "5.20.1",
     "typescript": "3.9.5"
