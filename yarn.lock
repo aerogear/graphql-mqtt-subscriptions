@@ -125,10 +125,10 @@
   resolved "https://registry.yarnpkg.com/@types/mocha/-/mocha-5.2.7.tgz#315d570ccb56c53452ff8638738df60726d5b6ea"
   integrity sha512-NYrtPht0wGzhwe9+/idPaBB+TqkY9AhTvOLMkThm0IoEfLaiVQZwBwyJ5puCkO3AUCWrmcoePjp2mbFocKy4SQ==
 
-"@types/node@11.13.9":
-  version "11.13.9"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-11.13.9.tgz#f80697caca7f7fb2526527a5c5a2743487f05ccc"
-  integrity sha512-NJ4yuEVw5podZbINp3tEqUIImMSAEHaCXRiWCf3KC32l6hIKf0iPJEh2uZdT0fELfRYk310yLmMXqy2leZQUbg==
+"@types/node@11.15.16":
+  version "11.15.16"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-11.15.16.tgz#0d7072715d51bb0f1dced2a7749db77b61b7a8e6"
+  integrity sha512-QUb2Wgrw0aq7Pfk9LhjOXrnm8E7CmwHSa5fy0IYvxWSujNVV0wDkaGxnAsu2WZcdYRBerYqnf6e6Qiq1FkBxGw==
 
 "@types/simple-mock@0.8.0":
   version "0.8.0"
