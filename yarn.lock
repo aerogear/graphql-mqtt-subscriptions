@@ -130,10 +130,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-11.13.9.tgz#f80697caca7f7fb2526527a5c5a2743487f05ccc"
   integrity sha512-NJ4yuEVw5podZbINp3tEqUIImMSAEHaCXRiWCf3KC32l6hIKf0iPJEh2uZdT0fELfRYk310yLmMXqy2leZQUbg==
 
-"@types/simple-mock@0.8.0":
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/@types/simple-mock/-/simple-mock-0.8.0.tgz#6fc0bb7e6ac7ac4deca634ba2eb0e2c76c9ed3bf"
-  integrity sha512-5Z5KkEDvtHJTa72y4JTNOONBsLt1nYfireobgsj+GqAwcenYalMJLFl/nyVkTshKpIXQUixfqKJAM9J/XxsD/g==
+"@types/simple-mock@0.8.1":
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/@types/simple-mock/-/simple-mock-0.8.1.tgz#bcb7d4bdd1d7c142008af3c32603c7088ad9af33"
+  integrity sha512-Mn5n1v3S5yhhegOSUpXl2WTujBJfM1Oa0YTb9PpaYUq6Iqj6yOxy8h8lwMtNidKs3pAByhp1uIK0QP+OZCsotQ==
 
 ajv@^6.5.5:
   version "6.12.2"
